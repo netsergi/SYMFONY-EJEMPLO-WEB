@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    	<div>
+    	<nav aria-label="Page navigation example" id="navPages">
+			  <ul class="pagination">
+			  	<li class="page-item"><a class="page-link" href="{{ path ('index', { 'pagina' : pagActual == 1 ? 1 : pagActual -1 }) }}"><<</a></li>
+			  	{% for i in 1..paginas %}
+			  	  <li class="page-item"><a class="page-link {% if i == pagActual %} currentPage {% endif %}" href="{{ path('index', {'pagina': i}) }}">{{ i }}</a></li>
+			    {% endfor %}
+			    <li class="page-item"><a class="page-link" href="{{ path ('index', { 'pagina' : pagActual == paginas ? pagActual : pagActual + 1 }) }}">>></a></li>
+			  </ul>
+		</nav>
+		<div class="input-group md-form form-sm form-1 pl-0">
+				 <div class="input-group-prepend">
+				    <span class="input-group-text bg-primary text-white" id="basic-text1"><i class="fa fa-search"
+				        aria-hidden="true"></i></span>
+				 </div>
+				 <input name="txtbuscar" class="form-control my-0 py-1" type="text" placeholder="Buscar producto" aria-label="Buscar">
+		</div>
+		</div>
+    	<div class="row">
+	    	{% for fila in lstOfertas %}
+	                <div id="product" class="col-lg-4 col-md-6 mb-4">
+	                  <div class="card h-100 text-center">
+	                    <a href="#"><img class="card-img-top" src="{{ asset ('img/'~fila.imgPath) }}" alt=""></a>
+	                    <div class="card-body text-left">
+	                      <h4 class="card-title">
+	                        <a href="#"> {{ fila.producto }}</a>
+	                      </h4>
+	                      <spam class="precio badge badge-secondary badge-success"><img src="{{ asset ('img/star.png')}}" /> {{ fila.precio }} €</spam>
+	                      <spam class="text-danger">{{ fila.precioAnt }} €</spam>
+	                      <spam class="badge badge-danger">{{ -(((fila.precioAnt - fila.precio) / fila.precioAnt) * 100) | number_format(0)}}%</spam>
+	                      <p class="card-text">{{ fila.descripcion }}</p>
+	                    </div>
+
+	                    <div class="card-footer">
+	                      
+	                    </div>
+	                  </div>
+	                </div>
+	        {% endfor %}
+	    </div>
+    </div>
+{% block javascript %}
+	<script>
+		var txtbuscar = $("input[name=txtbuscar]");
+		txtbuscar.keyup(function(){
+   				$.ajax({
+					url: "{{ path('buscar') }}",
+					type: "POST",
+					dataType: "json",
+					data: { valor:$(this).val() },
+					success: function(data){
+
+						$("div.row").html(data.html);
+					},
+					error: function(data){ console.log(data);
+											 } ,
+				}); 				
+   			});
+	</script>
+{% endblock %}
+{% endblock %}
+
+

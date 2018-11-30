@@ -1,0 +1,68 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ofertas
+ *
+ * @ORM\Table(name="ofertas")
+ * @ORM\Entity
+ */
+class Ofertas
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_oferta", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idOferta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="producto", type="string", length=100, nullable=true)
+     */
+    private $producto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="precio", type="decimal", precision=5, scale=2, nullable=true)
+     */
+    private $precio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="precio_ant", type="decimal", precision=5, scale=2, nullable=true)
+     */
+    private $precioAnt;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="stock", type="integer", nullable=true)
+     */
+    private $stock;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=200, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img_path", type="string", length=100, nullable=true)
+     */
+    private $imgPath;
+
+
+}
+

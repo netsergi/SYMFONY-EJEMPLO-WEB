@@ -1,0 +1,17 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+index:
+    path:  /{pagina}
+    defaults: { _controller: AppBundle\Controller\DefaultController::indexAction, pagina : 1 }
+    requirements:
+        _method:  GET
+        pagina: \d+
+
+buscar:
+    path:  /buscar
+    defaults: { _controller: AppBundle\Controller\DefaultController::buscarAction }
+    requirements:
+        _method:  POST
+      

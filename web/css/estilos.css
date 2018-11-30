@@ -1,0 +1,75 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+#product { padding: 10px; }
+
+#navPages {
+		  padding: 10px;
+		  width: 200px;
+}
+
+.currentPage {
+		 background-color: #dee2e6 !important;
+}
+
+spam.badge {
+
+	font-size: 1.2em !important;
+}
+
+div.card-body > spam.text-danger {
+	text-decoration: line-through;
+}
+
+spam.badge > img {
+	vertical-align: sub;
+	margin: 0 auto;
+	
+}
+
+div.card > a > img{
+	width: auto;
+	height: 250px;
+}
+
+div.input-group, #navPages {
+	display: inline-flex;
+	width: 230px;
+}
+
+
+/*-------------------------------------------------------------- */
+
+.input-group.md-form.form-sm.form-1 input{
+    border: 1px solid #bdbdbd;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input {
+    border: 1px solid #bdbdbd;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input.red-border  {
+    border: 1px solid #ef9a9a;
+}
+.input-group.md-form.form-sm.form-2 input.lime-border  {
+    border: 1px solid #cddc39;
+}
+.input-group.md-form.form-sm.form-2 input.amber-border  {
+    border: 1px solid #ffca28;
+}

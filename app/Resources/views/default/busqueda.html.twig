@@ -1,0 +1,20 @@
+{% for fila in lstOfertas %}
+	                <div id="product" class="col-lg-4 col-md-6 mb-4">
+	                  <div class="card h-100 text-center">
+	                    <a href="#"><img class="card-img-top" src="{{ asset ('img/'~fila.imgPath) }}" alt=""></a>
+	                    <div class="card-body text-left">
+	                      <h4 class="card-title">
+	                        <a href="#"> {{ fila.producto }}</a>
+	                      </h4>
+	                      <spam class="precio badge badge-secondary badge-success"><img src="{{ asset ('img/star.png')}}" /> {{ fila.precio }} €</spam>
+	                      <spam class="text-danger">{{ fila.precioAnt }} €</spam>
+	                      <spam class="badge badge-danger">{{ -(((fila.precioAnt - fila.precio) / fila.precioAnt) * 100) | number_format(0)}}%</spam>
+	                      <p class="card-text">{{ fila.descripcion }}</p>
+	                    </div>
+
+	                    <div class="card-footer">
+	                      
+	                    </div>
+	                  </div>
+	                </div>
+{% endfor %}
